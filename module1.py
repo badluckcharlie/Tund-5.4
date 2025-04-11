@@ -128,7 +128,10 @@ def tax(p: list, i: list):
         print("Viga!")
 
 def N_Salary(p: list, i: list):
-    """Shows people that are paid less and more than selected figure
+    """Shows people that are paid less and more than selected figure.
+    :type: float salary - ввод пользователем зарплаты для сравнения
+    :type: list less - список из тех кто получает меньше
+    :type: list more - список из тех кто получает больше
     """
     try:
         salary = float(input("Enter salary to compare: "))
