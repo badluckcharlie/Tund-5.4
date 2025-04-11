@@ -18,6 +18,7 @@ while True:
     print("6 - Näita võrdsed palgad")
     print("7 - Kellelt on palk suurem või vaäiksem kui sisestatud summa")
     print("8 - !OMA! Palga tõustus")
+    print("9 - Palgaotsing")
     print("11 - Näita palg käibemaksuga")
     print("0 - Exit")
     
@@ -48,5 +49,7 @@ while True:
         module1.N_Salary(palgad, inimesed)
     elif choice==8:
         module1.Bonus_Salary(palgad, inimesed)
+    elif choice==9:
+        module1.palgaotsing(palgad, inimesed)
     else:
         print("Error.")

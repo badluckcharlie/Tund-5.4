@@ -1,7 +1,9 @@
 p=[]
 i=[]
 def Add_employee(p:list,i:list):
-    """Функция для добавления работника и его зарплаты
+    """Функция для добавления работника и его зарплаты. Добавляет имя и зарплату в существующий список.
+    :type: str name - имя работника
+    :type: float salary - зарплата работника
     """
     while True:
         try:
@@ -21,7 +23,8 @@ def Add_employee(p:list,i:list):
     i.append(name)
 
 def Del_Employee(p:list,i:list):
-     """Del emp
+     """Убрать работника из списка. Проверяет есть ли работник в списке и если есть удаляет
+     :type: name - имя
      """
      try:
          name=input("Name: ")
@@ -40,6 +43,8 @@ def Del_Employee(p:list,i:list):
 
 def Top_Salary(p:list,i:list):
      """Shows top salary
+     :type: float max - максимальная зарплата из списка
+     :type: int k - подсчет из спискa
      """
      top=max(p)
      print(f"Suurem palk on {top}")
@@ -61,7 +66,8 @@ def Lowest_Salary(p:list,i:list):
          print(f"Saab kätte {i[ind]}")
          ind=ind+1
 def Sorteerimine(p:list,i:list)-> any:
-    """
+    """Сортировка работников по зарплате, с выбором по возрастанию или убыванию
+    :type: määramata tüüp v ввод пользователя < или >, выбор между возрастанием и убиыванием
     """
     v=input("Vali märk: > (Kasvav) või < (Kahanev): ")
     for n in range(0,len(i)):
@@ -72,6 +78,9 @@ def Sorteerimine(p:list,i:list)-> any:
     return p,i
 def same_salary(p: list, i: list):
     """Näita töötajad kellelt on võrdne palk
+    :type: list salary map - создает список из зарплат
+    :type: float salary - зарплата работника
+    :type: bool found - найдены ли работники с одинаковой зарплатой
     """
     salary_map = {}
     for name, salary in zip(i, p):
@@ -86,13 +95,19 @@ def same_salary(p: list, i: list):
             print("Nimed: ", ", ".join(names))
     
     if not found:
-        print("0")
+        print("0 tootajad sama palkaga")
 
 palgad = [1200, 2500, 750, 395, 1200]
 inimesed = ["A", "B", "C", "D", "E"]
 
 def tax(p: list, i: list):
-    """Reduce selected employee's salary by 20%"""
+    """Убирает 20% от зарплаты выбранного работника, чтобы узнать что он получит после налога
+    :param idx - пронумерованный список работников
+    :param int choice - пользователь выбирает кого-то из работников по номеру
+    :param original_salary - изначальная зарплата работника
+    :param taxl_salary - преобразование зарплаты с учетом налога в 20%
+    :param list [choice] - временный список для работы с нашим работником
+    """
     print("\nCurrent employees and salaries:")
     for idx, (name, salary) in enumerate(zip(i, p), 1):
         print(f"{idx}. {name}: {salary}$")
@@ -130,7 +145,12 @@ def N_Salary(p: list, i: list):
         print("Please enter a valid number!")
  
 def Bonus_Salary(p: list, i: list):
-    """Своя функция по выбору. Добавляет прибавку к зарплате выбранному работнику, позволяя выбрать процент на какой зарплата увеличиться
+    """Своя функция по выбору. Добавляет прибавку к зарплате выбранному работнику, позволяя выбрать процент на какой зарплата увеличится
+    :param int choice: выбор работника из существующих
+    :param float bonus: выбор размера бонуса в процентах
+    :param float bonus_to: нахождение доли для дальнейших рассчетов
+    :param float bonus_salary: итоговая зарплата в которую включен бонус
+    :param idx int: нумерованный список работников
     """
     for idx, (name, salary) in enumerate(zip(i, p), 1):
             print("\nCurrent employees and salaries:")
@@ -149,3 +169,17 @@ def Bonus_Salary(p: list, i: list):
 
     except:
         print("Error!")
+
+def palgaotsing(p:list, i:list):
+    """
+    :param i: Inimiste nimekiri
+    :param p: Palkade nimikiri
+    :rtype:none
+    """
+    nimi=input("Sisesta nimi mida sa sooviks: ")
+    leitud=False
+    for j in range(len(i)):
+        if i[j]==nimi:
+            print(f"{nimi} palk on: {p[j]}")
+    if leitud==False:
+        print(f"{nimi} kohta andmeid ei leitud")
